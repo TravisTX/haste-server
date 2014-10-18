@@ -1,0 +1,47 @@
+﻿.login-form {
+    margin-top: 100px;
+    background-color: #74170E;
+    border: 2px solid black;
+    -moz-box-shadow: 4px 4px 4px rgba(0,0,0,.55);
+    -webkit-box-shadow: 4px 4px 4px rgba(0,0,0,.55);
+    box-shadow: 4px 4px 4px rgba(0,0,0,.55);
+}
+
+.login-form-header {
+    color: White;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px;
+    height: 42px;
+}
+
+.login-form-content {
+    padding: 10px;
+    background-color: #C6BDA5;
+}
+
+.login-form-footer {
+    height: 45px;
+    text-align: right;
+}
+
+.login-form-content input[type="text"],
+.login-form-content input[type="password"] {
+    width: 250px;
+}
+
+.login-form-footer button {
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.login-form-footer input:hover {
+}
+
+.cb-version {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #999;
+    font-size: 10px;
+}
