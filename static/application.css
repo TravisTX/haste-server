@@ -32,6 +32,8 @@ body {
     z-index: 1;
     padding: 0 5px;
     color: #66d9ef;
+    font-family: monospace;
+    font-size: 14px;
 }
 
 .header .logo {
@@ -51,6 +53,10 @@ body {
 
 .header select {
     padding: 4px;
+}
+
+.header .fa {
+    margin-right: 5px;
 }
 
 .header-spacer {
@@ -94,17 +100,18 @@ textarea {
     color: #66d9ef;
 }
 
+.line-numbers .selected {
+    background-color: #e6db74;
+    color: #333 !important;
+}
+
 .line-numbers div {
     cursor: pointer;
 }
 
 .line-numbers div:hover {
     background-color: #555;
-}
-
-.line-numbers .selected {
-    background-color: #e6db74;
-    color: #333 !important;
+    color: #66d9ef;
 }
 
 pre {
