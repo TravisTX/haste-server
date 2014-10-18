@@ -6,12 +6,21 @@ pasteApp.controller('PasteController',
         var self = this;
         $scope.paste = {};
         $scope.paste.isNew = true;
-        $scope.paste.pasteKey = $stateParams.pasteKey;
-        $scope.paste.pasteFormat = $stateParams.format;
-        $scope.paste.pasteContent = "";
+        $scope.paste.pasteKey = '';
+        $scope.paste.pasteFormat = '';
+        $scope.paste.pasteContent = '';
         $scope.paste.location = $location;
         
         self.Init = function () {
+            if ($stateParams.format) {
+                $state.go('paste', {'pasteKey': $stateParams.pasteKey + '.' + $stateParams.format});
+            }
+        
+            if ($stateParams.pasteKey) {
+                var pasteKeyParts = $stateParams.pasteKey.split('.');
+                $scope.paste.pasteKey = pasteKeyParts[0];
+                $scope.paste.pasteFormat = pasteKeyParts[1] || '';
+            }
             $anchorScroll.yOffset = 100;   // always scroll by 100 extra pixels
             $scope.paste.LoadPaste();
         };
@@ -38,7 +47,7 @@ pasteApp.controller('PasteController',
         $scope.paste.SavePaste = function() {
             PasteService.SavePaste($scope.paste.pasteContent)
             .then(function (data) {
-                $state.go('paste', {'pasteKey': data.key, 'format': $scope.paste.pasteFormat});
+                $state.go('paste', {'pasteKey': data.key + '.' + $scope.paste.pasteFormat});
             });
         };
         
@@ -61,7 +70,7 @@ pasteApp.controller('PasteController',
         
         $scope.$watch('paste.pasteFormat', function(newValue, oldValue) {
             if (!$scope.paste.isNew) {
-                $state.go('paste', {'format': newValue});
+                $state.go('paste', {'pasteKey': $scope.paste.pasteKey + '.' + $scope.paste.pasteFormat});
             }
         });
 
