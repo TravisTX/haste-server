@@ -6,6 +6,12 @@ var pasteApp = angular.module('pasteApp', ['ui.router', 'hljs'])
     .config(
     ['$urlRouterProvider', '$stateProvider', 'routes', '$locationProvider',
     function ($urlRouterProvider, $stateProvider, routes, $locationProvider) {
+        $locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });
+    
+    
     console.log('config mode');
         //$locationProvider.html5Mode(true);
         //make urls case insensitive
