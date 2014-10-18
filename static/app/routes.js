@@ -17,6 +17,5 @@ pasteApp.constant('routes', {
     ],
 
     redirects: {
-        //'base': 'view/new'
     }
 });
