@@ -1,7 +1,7 @@
 ﻿<div class="header">
     <div class="logo pull-left">CodePaste</div>
-    <a ng-if="paste.isNew" class="function pull-left" ng-click="paste.SavePaste()"><i class="fa fa-save"></i> Save</a>
     <a class="function pull-left" ui-sref="paste_new"><i class="fa fa-plus-circle"></i> New</a>
+    <a ng-if="paste.isNew" class="function pull-left" ng-click="paste.SavePaste()"><i class="fa fa-save"></i> Save</a>
     <div class="pull-right">
         <select ng-model="paste.pasteFormat">
             <option value="">auto</option>
@@ -17,7 +17,10 @@
 
 <div class="paste-area">
     <div ng-if="paste.isNew">
-        <textarea ng-model="paste.pasteContent"></textarea>
+            <div class="line-numbers">
+                <div>&gt;</div>
+            </div>
+        <textarea autofocus ng-model="paste.pasteContent"></textarea>
     </div>
 
     <div ng-if="!paste.isNew">
